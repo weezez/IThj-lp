@@ -1,24 +1,39 @@
-const form = document.getElementById('contact-form');
-const submitBtn = document.getElementById('submit-btn');
+const form = document.querySelector('#contact-form');
 
-submitBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', form.action, true);
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        form.reset();
-        alert('Thank you for your message!');
-      } else {
-        alert('Oops! Something went wrong. Please try again later.');
-      }
-    }
-  };
-  const formData = new FormData(form);
-  xhr.send(new URLSearchParams(formData).toString());
+form.addEventListener('submit', function(event) {
+	event.preventDefault();
+	sendForm();
 });
+
+function sendForm() {
+	const name = document.querySelector('#name').value;
+	const email = document.querySelector('#email').value;
+	const phone = document.querySelector('#phone').value;
+	const message = document.querySelector('#message').value;
+
+	const data = {
+		name: name,
+		email: email,
+		phone: phone,
+		message: message
+	};
+
+	const xhr = new XMLHttpRequest();
+
+	xhr.open('POST', 'send-email.php', true);
+	xhr.setRequestHeader('Content-Type', 'application/json');
+
+	xhr.onload = function() {
+		if (this.status === 200) {
+			alert('Your message has been sent successfully!');
+			form.reset();
+		} else {
+			alert('There was an error sending your message. Please try again later.');
+		}
+	};
+
+	xhr.send(JSON.stringify(data));
+}
 
 
 function updateBox() {
