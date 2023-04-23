@@ -59,44 +59,16 @@ body {
 	flex-wrap: wrap;
 }
 
-
 .right-side {
 	flex: 1;
-	background-color: white;
+	padding: 20px;
 }
-
-.bubbles {
-	position: fixed;
-	top: 50%;
-	right: 0;
-	transform: translateY(-50%);
-  }
-  
-  .bubble {
-	position: relative;
-	display: inline-block;
-	width: 100px;
-	height: 100px;
-	margin: 10px;
-	border-radius: 50%;
-	overflow: hidden;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  .bubble img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-  }  
 
 .left-side {
 	flex: 1;
-	padding: 20px;
-	background-color: rgb(62, 56, 56);
+	background-color: rgb(21, 188, 188);
 }
+
 h1 {
 	font-size: 36px;
 	margin-top: 0;
@@ -139,6 +111,33 @@ cursor: pointer;
 input[type="submit"]:hover {
 background-color: #0069d9;
 }
+.bubbles {
+	position: fixed;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+  }
+  
+  .bubble {
+	position: relative;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .bubble img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  }  
+
 
 .green {
 background-color: green;
